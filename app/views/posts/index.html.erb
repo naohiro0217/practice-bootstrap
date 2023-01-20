@@ -5,17 +5,31 @@
   <div class='row'>
     <% @posts.each do |post| %>
     <!--bootsrapのcard-->
-      <div class='card m-sm-2' style='width: 18rem;'>
-        <div class='card-body'>
-          <h5 class='card-title'><%= post.title %></h5>
-          <h6 class='card-author'><%= post.author %></h6>
-          <p class='card-body'><%= post.body %></p>
-          <%= link_to 'Show', post %>
-          <%= link_to 'Edit', edit_post_path(post) %>
-          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to post do %>
+        <div class='card m-sm-2' style='width: 18rem;'>
+          <div class='card-body'>
+            <h5 class='card-title'><%= post.title %></h5>
+            <h6 class='card-author'><%= post.author %></h6>
+            <p class='card-body'><%= post.body %></p>
+            <!--<%= link_to 'Show', post %>-->
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
+
+
+    <div class="card" style="width: 18rem;">
+      <img src="post1.jpg" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">タイトル</h5>
+        <p class="card-text">内容</p>
+      </div>
+    </div>
+
+
+
 
       <!--<div class="col-lg-4" style="background-color: orange;">-->
       <!--  <h2>サイドバー</h2>-->
